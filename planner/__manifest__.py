@@ -29,6 +29,8 @@ Requirements:
     """,
     'author': 'Odoo S.A.',
     'website': 'http://www.odoo.com',
+    'price': '0.99',
+    'currency': 'USD',
     'images': ['static/description/banner.png'],
     'depends': ['base', 'base_automation', 'base_import_module'],
     'data': [
