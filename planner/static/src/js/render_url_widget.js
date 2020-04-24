@@ -70,7 +70,7 @@ odoo.define('planner.renderer', function (require) {
                             <strong>${_t(res[0])}</strong>
                         </a>
                         <p>${_t(res[1])}</p>
-                        <img src='${_t(res[2])}'/>
+                        ${res[2] ? `<img src='${res[2]}'/>` : ''}
                     `;
                 });
             }
@@ -111,7 +111,7 @@ odoo.define('planner.renderer', function (require) {
         
                 cb(props);
             }).fail(() => {
-                cb([_t('Error'), _t('404'), '/renderlistcontent/static/src/img/404PageNotFound.png']);
+                cb([_t('Webpage'), _t('The link takes you to the referenced website.'), '']);
             });
         },
 
