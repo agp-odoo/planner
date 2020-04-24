@@ -29,6 +29,7 @@ Requirements:
     """,
     'author': 'Odoo S.A.',
     'website': 'http://www.odoo.com',
+    'images': ['static/description/banner.png'],
     'depends': ['base', 'base_automation', 'base_import_module'],
     'data': [
         'data/models/models.xml',
