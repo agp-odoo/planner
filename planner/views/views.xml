@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <menuitem id="planner_menu_item" name="Planner"
+            web_icon="planner,static/description/icon.png"/>
+
+  <record model="ir.actions.act_window" id="x_idea_board_window_action">
+    <field name="name">Idea Board</field>
+    <field name="res_model">x_idea.board</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <record model="ir.actions.act_window" id="x_idea_window_action">
+    <field name="name">Ideas</field>
+    <field name="res_model">x_idea</field>
+    <field name="view_mode">kanban,form</field>
+  </record>
+
+  <menuitem name="Idea Board" sequence="1"
+            id="x_idea_board_submenu" 
+            parent="planner_menu_item"
+            action="x_idea_window_action"/>
+
+  <record model="ir.ui.view" id="x_idea_board_form_view">
+    <field name="name">planner.x_idea_board.form</field>
+    <field name="model">x_idea.board</field>
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <strong style="font-size: 25px;">
+            <field name="x_name"/>
+          </strong>
+          <div tyle="font-size: 14px;">
+            Total Approved: <field name='x_total_approved' read_only="True"/>
+          </div>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record model="ir.ui.view" id="x_idea_form_view">
+    <field name="name">planner.x_idea.form</field>
+    <field name="model">x_idea</field>
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <strong style="font-size: 25px;">
+            <field name="x_name"/>
+          </strong>
+          <div tyle="font-size: 14px;">
+            <field name='x_state' groups_id="base.group_system"/>
+          </div>
+          <div style="font-size: 14px;margin-bottom: 10px;">
+            <field name="x_idea_board_id"/><span style="float:right;">Price: <field name="x_price"/></span>
+          </div>
+          <div style="padding: 10px; border: 1px lightgrey solid; border-top: none;">
+            <field name="x_content" />
+          </div>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record model="ir.ui.view" id="x_idea_kanban_view">
+    <field name="name">planner.x_idea.kanban</field>
+    <field name="model">x_idea</field>
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+      <kanban default_group_by="x_idea_board_id" records_draggable="false" quick_create="false">
+        <templates>
+          <t t-name="kanban-box">
+            <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_res_partner_kanban">
+              <div class="oe_kanban_details">
+                <strong class="o_kanban_record_title oe_partner_heading">
+                  <field name="x_name"/><span style="float:right;">Price: $<field name="x_price"/></span>
+                </strong>
+                <div style='text-align:right;'>Upvotes: <field name='x_votes'/></div>
+                <div>
+                  <field name='x_content' widget='render_content'/>
+                </div>
+                <div style="text-align:right;">
+                  <span style='float:left;'>
+                    <field name="x_state" widget="label_selection" options="{
+                        'classes': {'green': 'success', 'grey': 'default', 'red': 'danger', 'yellow': 'warning'}
+                    }"/>
+                  </span>
+                  <button name="%(upvote_idea)d" class='btn btn-secondary' type="action">Upvote</button>
+                </div>
+              </div>
+            </div>
+          </t>
+        </templates>
+      </kanban>
+    </field>
+  </record>
+
+</odoo>

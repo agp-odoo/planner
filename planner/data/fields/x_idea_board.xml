@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="x_idea_board_x_name" model="ir.model.fields">
+        <field name="name">x_name</field>
+        <field name="model_id" ref="planner.model_x_idea_board"/>
+        <field name="ttype">char</field>
+        <field name="field_description">Idea</field>
+    </record>
+
+</odoo>
