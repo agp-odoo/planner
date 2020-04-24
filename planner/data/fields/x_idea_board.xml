@@ -7,5 +7,5 @@
         <field name="ttype">char</field>
         <field name="field_description">Idea</field>
     </record>
-
+    
 </odoo>

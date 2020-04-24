@@ -21,6 +21,24 @@
             parent="planner_menu_item"
             action="x_idea_window_action"/>
 
+  <menuitem name="Categories" sequence="2"  
+            id="x_idea_board_categories_submenu"
+            parent="planner_menu_item"
+            action="x_idea_board_window_action"
+            groups="base.group_system,base.group_erp_manager"/>
+
+  <record model="ir.ui.view" id="x_idea_board_tree_view">
+    <field name="name">planner.x_idea_board.tree</field>
+    <field name="model">x_idea.board</field>
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="x_name"/>
+        <field name='x_total_approved'/>
+      </tree>
+    </field>
+  </record>
+
   <record model="ir.ui.view" id="x_idea_board_form_view">
     <field name="name">planner.x_idea_board.form</field>
     <field name="model">x_idea.board</field>
