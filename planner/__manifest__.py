@@ -29,6 +29,7 @@ Requirements:
     """,
     'author': 'Odoo S.A.',
     'website': 'http://www.odoo.com',
+    'license': 'AGPL-3',
     'price': '0.99',
     'currency': 'USD',
     'images': ['static/description/banner.png'],
