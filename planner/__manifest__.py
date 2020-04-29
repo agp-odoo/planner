@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 {
-    'name': 'Custom Planning Module',
+    'name': 'Planner',
     'category': 'Planning',
     'summary': 'Custom Planning Module',
     'description': """
-Custom Planning Module
+Planner
 ==================================================
 The idea of this module is to have a board where users can share ideas for projects, sourcing, or other company related topics.
 This is great for new businesses that want to grow and take on other profitable opportunities. 
